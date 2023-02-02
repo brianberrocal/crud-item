@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "f32f765d-de9a-4aad-8a8e-163947e8aed6",
+		"name": "Team Tech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8082/api/multiplos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/multiplos",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"multiplos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8082/api/item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\":\"Frugos Gloria\",\r\n   \"caracteristicas\":\"Precisa Nevera\",\r\n   \"capacidad\":\"100 gr\",\r\n   \"envase\":\"Botella\",\r\n   \"cliente\":\"Frank\",\r\n   \"tipo\": \"Bebida\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/item",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8082/api/item",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\":\"Frugos Gloria\",\r\n   \"caracteristicas\":\"Precisa Nevera\",\r\n   \"capacidad\":\"100 gr\",\r\n   \"envase\":\"Botella\",\r\n   \"cliente\":\"Frank\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/item",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8082/api/item",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"itemCode\": 2,\r\n   \"nombre\":\"Frugos Druff\",\r\n   \"caracteristicas\":\"No Precisa nevera\",\r\n   \"capacidad\":\"1000 gr\",\r\n   \"envase\":\"Caja\",\r\n   \"clienteModificacion\":\"Lucas\",\r\n   \"tipo\": \"Comida\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/item",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8082/api/item",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\":\"Frugos Gloria\",\r\n   \"caracteristicas\":\"Precisa Nevera\",\r\n   \"capacidad\":\"100 gr\",\r\n   \"envase\":\"Botella\",\r\n   \"cliente\":\"Frank\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/item/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"item",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

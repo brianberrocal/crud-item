@@ -1,0 +1,410 @@
+openapi: 3.0.1 
+info:
+  title: API Team Tech
+  description: Mantenimiento de Items.
+  version: "1.0.0"
+servers:
+  - url: 'https://localhost:8080'
+tags:
+  - name: Team Tech
+    description: Mantenimiento de Item.
+paths:
+  '/api/item':
+    get:
+      tags:
+      - Item
+      summary: El servicio permite listar los items.
+      description: >
+        ### Acerca de la funcionalidad expuesta
+        
+        El servicio permite listar los items.
+
+        #### 1. PostgreSQL
+        
+        Se consulta la informacion de los items en la bd_team_tech en el motor de postgreSQL.
+        
+        | Ambiente | Base de datos | 
+        
+        |----------|------------|
+        
+        | Desarrollo | por definir |
+        
+        | Certificación | por definir |
+        
+        | Producción | por definir |
+        
+
+        ### Usos válidos de Query Parameters
+        
+        | Resultado Esperado | Path Param | Query Param requerido |
+        
+        |--------------------|------------|-----------------------------|
+        
+        | |  |  |
+        
+
+        ### Códigos de error usados en esta versión de la API
+        
+        | Código | HTTP Status | Descripción |
+
+        |--------|-------------|-------------|
+        
+        | 200 | 200 | OK.                 |
+        
+      operationId: findAll
+      responses:
+        200:
+          description: Ok.
+          content:
+            application/stream+json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Http200ItemResponse'
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Http200ItemResponse'
+    post:
+      tags:
+      - Item
+      summary: El servicio permite registrar un item.
+      description: >
+        ### Acerca de la funcionalidad expuesta
+        
+        El servicio permite registrar un item.
+
+        #### 1. PostgreSQL
+        
+        se envia la informacion del item para ser registrada en la bd_team_tech en el motor de postgreSQL.
+        
+        | Ambiente | Base de datos | 
+        
+        |----------|------------|
+        
+        | Desarrollo | por definir |
+        
+        | Certificación | por definir |
+        
+        | Producción | por definir |
+        
+
+        ### Usos válidos de Query Parameters
+        
+        | Resultado Esperado | Path Param | Query Param requerido |
+        
+        |--------------------|------------|-----------------------------|
+        
+        |El servicio permite registrar un item. |  | ItemRequest |
+        
+
+        ### Códigos de error usados en esta versión de la API
+        
+        | Código | HTTP Status | Descripción |
+
+        |--------|-------------|-------------|
+        
+        | 201 | 201 | Created.                 |
+        
+      operationId: register
+      requestBody:
+        description: Entrada del Servicio
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemRequest'
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ItemRequest'
+        required: true
+      responses:
+        201:
+          description: Ok.
+          content:
+            application/stream+json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Http201ItemResponse'
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Http201ItemResponse'
+    put:
+      tags:
+      - Item
+      summary: El servicio permite actualizar un item.
+      description: >
+        ### Acerca de la funcionalidad expuesta
+        
+        El servicio permite actualizar un item.
+
+        #### 1. PostgreSQL
+        
+        se envia la informacion del item para ser actualizada en la bd_team_tech en el motor de postgreSQL.
+        
+        | Ambiente | Base de datos | 
+        
+        |----------|------------|
+        
+        | Desarrollo | por definir |
+        
+        | Certificación | por definir |
+        
+        | Producción | por definir |
+        
+
+        ### Usos válidos de Query Parameters
+        
+        | Resultado Esperado | Path Param | Query Param requerido |
+        
+        |--------------------|------------|-----------------------------|
+        
+        |El servicio permite Actualizar un item. |  | ItemPutRequest |
+        
+
+        ### Códigos de error usados en esta versión de la API
+        
+        | Código | HTTP Status | Descripción |
+
+        |--------|-------------|-------------|
+        
+        | 200 | 200 | Ok.                 |
+        
+      operationId: update
+      requestBody:
+        description: Entrada del Servicio
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemPutRequest'
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ItemPutRequest'
+        required: true
+      responses:
+        201:
+          description: Ok.
+          content:
+            application/stream+json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Http200ItemResponse'
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Http200ItemResponse'
+  '/api/item/{code}':
+    delete:
+      tags:
+      - Item
+      summary: El servicio permite eliminar un item.
+      description: >
+        ### Acerca de la funcionalidad expuesta
+        
+        El servicio permite eliminar un item.
+
+        #### 1. PostgreSQL
+        
+        se envia la informacion del item para ser eliminada en la bd_team_tech en el motor de postgreSQL.
+        
+        | Ambiente | Base de datos | 
+        
+        |----------|------------|
+        
+        | Desarrollo | por definir |
+        
+        | Certificación | por definir |
+        
+        | Producción | por definir |
+        
+
+        ### Usos válidos de Query Parameters
+        
+        | Resultado Esperado | Path Param | Query Param requerido |
+        
+        |--------------------|------------|-----------------------------|
+        
+        |El servicio permite eliminar un item |  | code |
+        
+
+        ### Códigos de error usados en esta versión de la API
+        
+        | Código | HTTP Status | Descripción |
+
+        |--------|-------------|-------------|
+        
+        | 204 | 204 | Ok.                 |
+        
+      operationId: delete
+      parameters:
+        - $ref: '#/components/parameters/code'
+      responses:
+        204:
+          description: Deleted
+
+components:
+  parameters:
+    code:
+      name: code
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 1
+        description: code
+  schemas:
+    ItemRequest:
+      title: ItemRequest
+      type: object
+      properties:
+        nombre:
+          type: string
+          example: "Frugos Gloria"
+          description: nombre
+        caracteristica:
+          type: string
+          example: "Precisa Nevera"
+          description: caracteristica
+        capacidad:
+          type: string
+          example: "100 gr"
+          description: capacidad
+        envase:
+          type: string
+          example: "Botella"
+          description: envase
+        cliente:
+          type: string
+          example: "Frank"
+          description: cliente
+        tipo:
+          type: string
+          example: "Bebida"
+          description: tipo 
+    ItemPutRequest:
+      title: ItemPutRequest
+      type: object
+      properties:
+        itemCode:
+          type: integer
+          format: int64
+          example: 2
+          description: nombre
+        nombre:
+          type: string
+          example: "Frugos Gloria"
+          description: nombre
+        caracteristica:
+          type: string
+          example: "Precisa Nevera"
+          description: caracteristica
+        capacidad:
+          type: string
+          example: "100 gr"
+          description: capacidad
+        envase:
+          type: string
+          example: "Botella"
+          description: envase
+        clienteModificacion:
+          type: string
+          example: "Frank"
+          description: cliente
+        tipo:
+          type: string
+          example: "Bebida"
+          description: tipo       
+    Http201ItemResponse:
+      title: Http201ItemResponse
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 2
+          description: id
+        nombre:
+          type: string
+          example: "Frugos Gloria"
+          description: nombre
+        caracteristica:
+          type: string
+          example: "Precisa Nevera"
+          description: caracteristica
+        capacidad:
+          type: string
+          example: "100 gr"
+          description: capacidad
+        envase:
+          type: string
+          example: "Botella"
+          description: envase
+        tipo:
+          type: string
+          example: "Bebida"
+          description: tipo  
+        fechaCreacion:
+          type: string
+          format: date
+          example: "2022-07-13T22:26:11"
+          description: fechaCreacion
+        cliente:
+          type: string
+          example: "Frank"
+          description: cliente
+        fechaModificacion:
+          type: string
+          example: null
+          description: fechaModificacion
+        clienteModificacion:
+          type: string
+          example: null
+          description: clienteModificacion
+        estado:
+          type: string
+          example: "CREATED"
+          description: estado
+    Http200ItemResponse:
+      title: Http200ItemResponse
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 2
+          description: id
+        nombre:
+          type: string
+          example: "Frugos Gloria"
+          description: nombre
+        caracteristica:
+          type: string
+          example: "Precisa Nevera"
+          description: caracteristica
+        capacidad:
+          type: string
+          example: "100 gr"
+          description: capacidad
+        envase:
+          type: string
+          example: "Botella"
+          description: envase
+        tipo:
+          type: string
+          example: "Bebida"
+          description: tipo  
+        fechaCreacion:
+          type: string
+          format: date
+          example: "2022-07-13T22:26:11"
+          description: fechaCreacion
+        cliente:
+          type: string
+          example: "Frank"
+          description: cliente
+        fechaModificacion:
+          type: string
+          example: null
+          description: fechaModificacion
+        clienteModificacion:
+          type: string
+          example: null
+          description: clienteModificacion
+        estado:
+          type: string
+          example: "OK"
+          description: estado      
